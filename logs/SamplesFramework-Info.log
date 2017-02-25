@@ -1,0 +1,85 @@
+[INFO] [2017-02-23 17:39:57] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(256) | Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2017-02-23 17:39:57] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(182) | Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@33b54d4e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43e65667, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4732a704, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4e731c20, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@673ba11c]
+  [INFO] [2017-02-23 17:39:57] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(317) | Loading XML bean definitions from class path resource [spring_core.xml]
+  [INFO] [2017-02-23 17:39:57] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:39:57 CST 2017]; root of context hierarchy
+  [INFO] [2017-02-23 17:39:57] org.quartz.impl.StdSchedulerFactory.instantiate(1184) | Using default implementation for ThreadExecutor
+  [INFO] [2017-02-23 17:39:57] org.quartz.simpl.SimpleThreadPool.initialize(268) | Job execution threads will use class loader of thread: main
+  [INFO] [2017-02-23 17:39:57] org.quartz.core.SchedulerSignalerImpl.<init>(61) | Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+  [INFO] [2017-02-23 17:39:57] org.quartz.core.QuartzScheduler.<init>(240) | Quartz Scheduler v.2.2.1 created.
+  [INFO] [2017-02-23 17:39:57] org.quartz.simpl.RAMJobStore.initialize(155) | RAMJobStore initialized.
+  [INFO] [2017-02-23 17:39:57] org.quartz.core.QuartzScheduler.initialize(305) | Scheduler meta-data: Quartz Scheduler (v2.2.1) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+  [INFO] [2017-02-23 17:39:57] org.quartz.impl.StdSchedulerFactory.instantiate(1339) | Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+  [INFO] [2017-02-23 17:39:57] org.quartz.impl.StdSchedulerFactory.instantiate(1343) | Quartz scheduler version: 2.2.1
+  [INFO] [2017-02-23 17:39:57] org.quartz.core.QuartzScheduler.start(575) | Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+  [INFO] [2017-02-23 17:39:57] org.springframework.context.support.AbstractApplicationContext.doClose(862) | Closing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:39:57 CST 2017]; root of context hierarchy
+  [INFO] [2017-02-23 17:40:32] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(256) | Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2017-02-23 17:40:32] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(182) | Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@33b54d4e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43e65667, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4732a704, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4e731c20, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@673ba11c]
+  [INFO] [2017-02-23 17:40:32] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(317) | Loading XML bean definitions from class path resource [spring_core.xml]
+  [INFO] [2017-02-23 17:40:33] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:40:33 CST 2017]; root of context hierarchy
+  [INFO] [2017-02-23 17:40:33] org.quartz.impl.StdSchedulerFactory.instantiate(1184) | Using default implementation for ThreadExecutor
+  [INFO] [2017-02-23 17:40:33] org.quartz.simpl.SimpleThreadPool.initialize(268) | Job execution threads will use class loader of thread: main
+  [INFO] [2017-02-23 17:40:33] org.quartz.core.SchedulerSignalerImpl.<init>(61) | Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+  [INFO] [2017-02-23 17:40:33] org.quartz.core.QuartzScheduler.<init>(240) | Quartz Scheduler v.2.2.1 created.
+  [INFO] [2017-02-23 17:40:33] org.quartz.simpl.RAMJobStore.initialize(155) | RAMJobStore initialized.
+  [INFO] [2017-02-23 17:40:33] org.quartz.core.QuartzScheduler.initialize(305) | Scheduler meta-data: Quartz Scheduler (v2.2.1) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+  [INFO] [2017-02-23 17:40:33] org.quartz.impl.StdSchedulerFactory.instantiate(1339) | Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+  [INFO] [2017-02-23 17:40:33] org.quartz.impl.StdSchedulerFactory.instantiate(1343) | Quartz scheduler version: 2.2.1
+  [INFO] [2017-02-23 17:40:33] org.quartz.core.QuartzScheduler.start(575) | Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+  [INFO] [2017-02-23 17:40:33] org.springframework.context.support.AbstractApplicationContext.doClose(862) | Closing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:40:33 CST 2017]; root of context hierarchy
+  [INFO] [2017-02-23 17:41:18] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(256) | Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2017-02-23 17:41:18] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(182) | Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@33b54d4e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43e65667, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4732a704, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4e731c20, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@673ba11c]
+  [INFO] [2017-02-23 17:41:19] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(317) | Loading XML bean definitions from class path resource [spring_core.xml]
+  [INFO] [2017-02-23 17:41:19] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:41:19 CST 2017]; root of context hierarchy
+  [INFO] [2017-02-23 17:41:19] org.quartz.impl.StdSchedulerFactory.instantiate(1184) | Using default implementation for ThreadExecutor
+  [INFO] [2017-02-23 17:41:19] org.quartz.simpl.SimpleThreadPool.initialize(268) | Job execution threads will use class loader of thread: main
+  [INFO] [2017-02-23 17:41:19] org.quartz.core.SchedulerSignalerImpl.<init>(61) | Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+  [INFO] [2017-02-23 17:41:19] org.quartz.core.QuartzScheduler.<init>(240) | Quartz Scheduler v.2.2.1 created.
+  [INFO] [2017-02-23 17:41:19] org.quartz.simpl.RAMJobStore.initialize(155) | RAMJobStore initialized.
+  [INFO] [2017-02-23 17:41:19] org.quartz.core.QuartzScheduler.initialize(305) | Scheduler meta-data: Quartz Scheduler (v2.2.1) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+  [INFO] [2017-02-23 17:41:19] org.quartz.impl.StdSchedulerFactory.instantiate(1339) | Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+  [INFO] [2017-02-23 17:41:19] org.quartz.impl.StdSchedulerFactory.instantiate(1343) | Quartz scheduler version: 2.2.1
+  [INFO] [2017-02-23 17:41:19] org.quartz.core.QuartzScheduler.start(575) | Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+  [INFO] [2017-02-23 17:41:19] org.springframework.context.support.AbstractApplicationContext.doClose(862) | Closing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:41:19 CST 2017]; root of context hierarchy
+  [INFO] [2017-02-23 17:42:41] org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(256) | Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+  [INFO] [2017-02-23 17:42:41] org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(182) | Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@33b54d4e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43e65667, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4732a704, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4e731c20, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@673ba11c]
+  [INFO] [2017-02-23 17:42:41] org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(317) | Loading XML bean definitions from class path resource [spring_core.xml]
+  [INFO] [2017-02-23 17:42:41] org.springframework.context.support.AbstractApplicationContext.prepareRefresh(510) | Refreshing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:42:41 CST 2017]; root of context hierarchy
+  [INFO] [2017-02-23 17:42:42] org.quartz.impl.StdSchedulerFactory.instantiate(1184) | Using default implementation for ThreadExecutor
+  [INFO] [2017-02-23 17:42:42] org.quartz.simpl.SimpleThreadPool.initialize(268) | Job execution threads will use class loader of thread: main
+  [INFO] [2017-02-23 17:42:42] org.quartz.core.SchedulerSignalerImpl.<init>(61) | Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+  [INFO] [2017-02-23 17:42:42] org.quartz.core.QuartzScheduler.<init>(240) | Quartz Scheduler v.2.2.1 created.
+  [INFO] [2017-02-23 17:42:42] org.quartz.simpl.RAMJobStore.initialize(155) | RAMJobStore initialized.
+  [INFO] [2017-02-23 17:42:42] org.quartz.core.QuartzScheduler.initialize(305) | Scheduler meta-data: Quartz Scheduler (v2.2.1) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+  [INFO] [2017-02-23 17:42:42] org.quartz.impl.StdSchedulerFactory.instantiate(1339) | Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+  [INFO] [2017-02-23 17:42:42] org.quartz.impl.StdSchedulerFactory.instantiate(1343) | Quartz scheduler version: 2.2.1
+  [INFO] [2017-02-23 17:42:42] org.quartz.core.QuartzScheduler.start(575) | Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+  [INFO] [2017-02-23 17:42:42] org.springframework.context.support.AbstractApplicationContext.doClose(862) | Closing org.springframework.context.support.GenericApplicationContext@423c4542: startup date [Thu Feb 23 17:42:41 CST 2017]; root of context hierarchy
+  

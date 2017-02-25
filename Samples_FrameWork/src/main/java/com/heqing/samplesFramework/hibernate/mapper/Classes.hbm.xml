@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.heqing.samplesFramework.hibernate.bean.Classes" table="classes">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="name"/>
+        
+        <one-to-one name="headTeacher" cascade="all"/>
+
+        <!-- classDirector属性，本类与com.heqing.samplesFramework.hibernate.bean.Teacher的多对一 -->		
+		<many-to-one name="classDirector" class="com.heqing.samplesFramework.hibernate.bean.Teacher" column="classDirector_id"  cascade="all"></many-to-one>
+       
+        <!-- teachers属性，本类与Teacher的多对多 -->
+		<set name="teachers" table="teacher_classes" cascade="all">
+			<key column="classes_id"></key>
+			<many-to-many class="com.heqing.samplesFramework.hibernate.bean.Teacher" column="teacher_id"></many-to-many>
+		</set>
+        
+    </class>
+
+</hibernate-mapping>

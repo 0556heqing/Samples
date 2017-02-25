@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定Struts 2配置文件的DTD信息 -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 配置了系列常量 -->
+	<constant name="struts.i18n.encoding"	value="UTF-8"/>
+	<constant name="struts.devMode" 		value="true"/>	
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>	
+	
+	<package name="default"  namespace="/"   extends="struts-default">
+		<!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
+		<action name="struts2_*"  class="com.heqing.samplesFramework.struts2.action.TestAction" method="{1}">
+		    <result name="struts2">WEB-INF/view/struts2.jsp</result>
+		</action>
+	</package>
+</struts>
