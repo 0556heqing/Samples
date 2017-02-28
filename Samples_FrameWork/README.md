@@ -1,4 +1,4 @@
-1.spring
+﻿1.spring
 	1, @Controller:
 			负责注册一个bean 到spring 上下文中
 	2, @RequestMapping:
@@ -60,3 +60,4 @@ SpringMVC与struts2的区别
 	跟我学Shiro							http://jinnianshilongnian.iteye.com/blog/2049092
 	
 5. Quartz
+	QuartZ Cron表达式	http://www.cnblogs.com/drubber/p/5845014.html
