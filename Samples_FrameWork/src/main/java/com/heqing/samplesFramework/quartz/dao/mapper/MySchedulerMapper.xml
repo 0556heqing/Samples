@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heqing.samplesFramework.quartz.dao.MySchedulerDao">
+
+    <resultMap id="mySchedulerResult" type="MyScheduler" >
+        <result 	 column="s_id" 			property="id" />
+        <result 	 column="s_name"  		property="name" />  
+        <result 	 column="s_group"  		property="group" /> 
+        <result 	 column="s_state"  		property="state" />  
+        <result 	 column="s_onOrOff" 	property="onOrOff" />   
+        <result 	 column="s_describe"  	property="describe" />   
+        <result 	 column="s_createUser" 	property="createUser" />   
+        <result 	 column="s_createTime" 	property="createTime" />
+        <association column="s_jobDetailId" property="myJobDetail" javaType="MyJobDetail" select="getJobDetail" />
+        <association column="s_triggerId"   property="myTrigger"   javaType="MyTrigger"   select="getTrigger" />
+    </resultMap>
+    
+     <select id="getJobDetail" parameterType="Long" resultMap="com.heqing.samplesFramework.quartz.dao.MyJobDetailDao.myJobDetailResult">
+        select
+        	<include refid="com.heqing.samplesFramework.quartz.dao.MyJobDetailDao.Base_Column"/> 
+		from  t_MyJobDetail j
+		where j._id = #{myJobDetail} 
+    </select>
+    
+    <select id="getTrigger" parameterType="Long" resultMap="com.heqing.samplesFramework.quartz.dao.MyTriggerDao.myTriggerResult">
+        select
+        	<include refid="com.heqing.samplesFramework.quartz.dao.MyTriggerDao.Base_Column"/> 
+		from  t_MyTrigger t
+		where t._id = #{myTrigger}
+    </select>
+    
+    <sql id="Base_Column">
+    	s._id s_id, s._name s_name, s._group s_group, s._state s_state, s._jobDetailId s_jobDetailId, s._triggerId s_triggerId, s._describe s_describe, s._createUser s_createUser, s._createTime s_createTime
+    </sql>
+ 
+    <insert id="save" keyColumn="_id" keyProperty="id" useGeneratedKeys="true">
+        insert into t_MyScheduler
+        	(_id, _name, _group, _state, _jobDetailId, _triggerId, _onOrOff, _describe, _createUser, _createTime) 
+        values 
+        	(#{id}, #{name}, #{group}, #{state}, #{myJobDetail.id}, #{myTrigger.id}, #{onOrOff,jdbcType=BOOLEAN}, #{describe}, #{createUser}, #{createTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <update id="update" parameterType="myScheduler">
+        update t_MyScheduler set 
+        	_name = #{name}, _group = #{group}, _state = #{state}, _jobDetailId = #{myJobDetail.id}, _triggerId = #{myTrigger.id}, _onOrOff = #{onOrOff},
+        	_describe = #{describe} , _createUser = #{createUser}, _createTime = #{createTime, jdbcType=DATE}
+        where 
+        	_id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from t_MyScheduler where _id = #{id}
+    </delete>
+
+    <select id="getById" parameterType="Long" resultMap="mySchedulerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyScheduler s 
+        where s._id = #{id}
+    </select>
+    
+    <select id="getByIds" parameterType="Long[]" resultMap="mySchedulerResult">
+        select 
+        <include refid="Base_Column"/> 
+        from t_MyScheduler s 
+        where id in
+	    	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">  
+	            #{item}   
+	    	</foreach>  
+    </select>
+
+    <select id="findAll" resultMap="mySchedulerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyScheduler s
+    </select>
+
+	<select id="getPageBean"  resultMap="mySchedulerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyScheduler s 
+        where s._id limit #{0} , #{1} 
+    </select>
+    
+    <select id="getSchedulerListByJobDetail"  resultMap="mySchedulerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyScheduler s
+		where s._jobDetailId = #{myJobDetailId} AND s._onOrOff = #{onOrOff} 
+			<if test="pageNum != 0 or pageSize != 0">
+		        limit #{pageNum} , #{pageSize} 
+		    </if>
+    </select>
+    
+    <select id="getSchedulerListByTrigger"  resultMap="mySchedulerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyScheduler s, t_MyTrigger t
+		where s._triggerId = #{myTriggerId} AND s._onOrOff = #{onOrOff} 
+			<if test="pageNum != 0 or pageSize != 0">
+		        limit #{pageNum} , #{pageSize} 
+		    </if>
+    </select>
+    
+    <delete id="deleteSchedulerByJobDetail" parameterType="Long">
+        delete from t_MyScheduler where _jobDetailId = #{myJobDetailId}
+    </delete>
+    
+    <delete id="deleteSchedulerByTrigger" parameterType="Long">
+        delete from t_MyScheduler where _triggerId = #{myTriggerId}
+    </delete>
+    
+</mapper>

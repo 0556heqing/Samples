@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heqing.samplesFramework.quartz.dao.MyTriggerDao">
+
+    <resultMap id="myTriggerResult" type="MyTrigger" >
+        <result column="t_id" 			property="id" />
+        <result column="t_rule" 		property="rule" />   
+        <result column="t_describe"  	property="describe" />   
+        <result column="t_createUser" 	property="createUser" />   
+        <result column="t_createTime" 	property="createTime" />   
+    </resultMap>
+    
+    <sql id="Base_Column">
+    	t._id t_id, t._rule t_rule,  
+    	t._describe t_describe, t._createUser t_createUser, t._createTime t_createTime
+    </sql>
+ 
+    <insert id="save" keyColumn="_id" keyProperty="id" useGeneratedKeys="true">
+        insert into t_MyTrigger
+        	(_id, _rule, _describe, _createUser, _createTime) 
+        values 
+        	(#{id}, #{rule}, #{describe}, #{createUser}, #{createTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <update id="update" parameterType="myTrigger">
+        update t_MyTrigger set 
+        	 _rule = #{rule},_describe = #{describe} , _createUser = #{createUser}, _createTime = #{createTime, jdbcType=DATE}
+        where 
+        	_id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from t_MyTrigger where _id = #{id}
+    </delete>
+
+    <select id="getById" parameterType="Long" resultMap="myTriggerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyTrigger t 
+        where t._id = #{id}
+    </select>
+    
+    <select id="getByIds" parameterType="Long[]" resultMap="myTriggerResult">
+        select 
+        <include refid="Base_Column"/> 
+        from t_MyTrigger t 
+        where id in
+	    	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">  
+	            #{item}   
+	    	</foreach>  
+    </select>
+
+    <select id="findAll" resultMap="myTriggerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyTrigger t
+    </select>
+
+	<select id="getPageBean"  resultMap="myTriggerResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyTrigger t 
+        where t._id limit #{0} , #{1} 
+    </select>
+</mapper>

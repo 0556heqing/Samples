@@ -1,0 +1,28 @@
+* { margin: 0; padding: 0;}
+body { font-size: 14px; font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,"Microsoft Yahei",sans-serif; color: #607d8b;}
+ul, ol { list-style: none;}
+a { text-decoration: none; color: #607d8b;}
+hr {margin: 10px 0px 10px 0px; border-top:1px dashed #0066CC;}
+.clearfix:after { content: " "; display: block; clear: both; line-height: 0; height: 0; visibility: hidden; }
+.mainCenterRight { float: left; width: 98%; background-color: #e4edf0; padding: 7px 8px 0 6px; margin: 10px 10px 10px 10px;}
+.mainCenterRightT { height: 40px; line-height: 40px; background-color: #cce0eb; padding-left: 12px; margin-bottom: 5px;}
+.mainCenterRightC { border: 1px solid #a1c9d4; border-radius: 7px; background-color: #edf9fa; padding: 16px; margin-bottom: 5px;}
+.mainCenterRightC li { float: left; width: 33.3%; padding: 3px 0;}
+.mainCenterRightC li span { color: #46b1cf; padding-left: 6px;}
+.mainCenterRightD { border: 1px solid #a1c9d4; border-radius: 7px; background-color: #edf9fa; padding: 16px;}
+.mainCenterRightD .inputArea { border: 1px solid #a1c9d4; margin: 10px -17px 10px -17px; padding: 10px 0px 15px 0px;}
+.mainCenterRightD .inputArea li { padding: 10px 50px 10px 50px; height: 20px;}
+.mainCenterRightD .inputArea li input{ margin: 0px 15px; height: 25px; width: 200px;  border-radius: 7px; border: 1px solid #a1c9d4;}
+.mainCenterRightD .inputArea li a{ margin: 0px 15px; font-size: 20px; font-weight: bold;}
+
+.mainCenterRightD .submitInfo{padding: 0 10px; height: 38px; line-height: 38px; font-size: 16px;}
+.mainCenterRightD .submitInfo input{float: right;  height: 40px; width: 120px; border-radius: 8px; border: 1px solid #a1c9d4; background-color: #2ab5c7; font-size: 18px; color: #fff;}
+
+
+
+
+
+
+
+
+

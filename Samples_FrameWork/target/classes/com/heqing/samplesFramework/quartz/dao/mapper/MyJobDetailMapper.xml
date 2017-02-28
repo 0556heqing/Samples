@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heqing.samplesFramework.quartz.dao.MyJobDetailDao">
+
+    <resultMap id="myJobDetailResult" type="MyJobDetail" >
+        <result column="j_id" 			property="id" />
+        <result column="j_className" 	property="className" />   
+        <result column="j_methodsName"  property="methodsName" />   
+        <result column="j_content" 		property="content" />   
+        <result column="j_describe" 	property="describe" />   
+        <result column="j_createUser" 	property="createUser" />   
+        <result column="j_createTime" 	property="createTime" />   
+    </resultMap>
+    
+    <sql id="Base_Column">
+    	j._id j_id, j._className j_className, j._methodsName j_methodsName,
+    	j._content j_content, j._describe j_describe, j._createUser j_createUser, j._createTime j_createTime
+    </sql>
+ 
+    <insert id="save" keyColumn="_id" keyProperty="id" useGeneratedKeys="true">
+        insert into t_MyJobDetail 
+        	(_id, _className, _methodsName, _content, _describe, _createUser, _createTime) 
+        values 
+        	(#{id}, #{className}, #{methodsName}, #{content}, #{describe}, #{createUser}, #{createTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <update id="update" parameterType="myJobDetail">
+        update t_MyJobDetail set 
+            _className = #{className}, _methodsName = #{methodsName}, _content = #{content}, 
+        	_describe = #{describe} , _createUser = #{createUser}, _createTime = #{createTime, jdbcType=DATE}
+        where 
+        	_id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from t_MyJobDetail where _id = #{id}
+    </delete>
+
+    <select id="getById" parameterType="Long" resultMap="myJobDetailResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyJobDetail j 
+        where j._id = #{id}
+    </select>
+    
+    <select id="getByIds" parameterType="Long[]" resultMap="myJobDetailResult">
+        select 
+        <include refid="Base_Column"/> 
+        from t_MyJobDetail j 
+        where id in
+	    	<foreach collection="array" index="index" item="item" open="(" separator="," close=")">  
+	            #{item}   
+	    	</foreach>  
+    </select>
+
+    <select id="findAll" resultMap="myJobDetailResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyJobDetail j
+    </select>
+
+	<select id="getPageBean"  resultMap="myJobDetailResult">
+        select 
+        	<include refid="Base_Column"/> 
+        from t_MyJobDetail j 
+        where j._id limit #{0} , #{1} 
+    </select>
+</mapper>
