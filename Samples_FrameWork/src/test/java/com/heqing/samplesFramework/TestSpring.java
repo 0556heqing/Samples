@@ -54,10 +54,7 @@ public class TestSpring {
 			while((str = br.readLine())!=null){
 				System.out.println(str);//获得页面内容或返回内容
 			}
-		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

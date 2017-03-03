@@ -122,15 +122,11 @@ public class TestAspect {
 		sb.append("\n-->MethodName : "+method.getName());
 		
 		JSONObject parame = new JSONObject();
-		for(int i=0; i<parames.length; i++) {
-			parame.put(i+"", parames[i]);
-		}
+		for(int i=0; i<parames.length; i++) parame.put(i+"", parames[i]);
 		sb.append("\n-->Parameter : "+parame);
 		
 		parame = new JSONObject();
-		for(int i=0; i<parameTypes.length; i++) {
-			parame.put(i+"", parameTypes[i]);
-		}
+		for(int i=0; i<parameTypes.length; i++) parame.put(i+"", parameTypes[i]);
 		sb.append("\n-->ParameterTypes : "+parame);
 		parame = new JSONObject();
 		parame.put("returnValue", returnValue);

@@ -38,7 +38,7 @@ import com.heqing.samplesFramework.spring.bean.Test;
 @Controller
 @RequestMapping("/springMVC")
 public class TestController {
-	
+
 	private Log log = LogFactory.getLog(getClass());
 	
 	@ModelAttribute   

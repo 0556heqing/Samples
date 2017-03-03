@@ -3,7 +3,7 @@ package com.heqing.samplesFramework.spring.bean;
 import java.io.Serializable;
 
 public class Test implements Serializable {
-
+	
 	private int id;
 	private String name;
 	

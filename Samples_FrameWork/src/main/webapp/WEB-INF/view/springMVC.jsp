@@ -22,8 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<script src="<%=request.getContextPath()%>/js/jquery-3.1.1.min.js"></script> 
-	<script src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script> 
+	<script src="<%=request.getContextPath()%>/script/jquery-3.1.1.min.js"></script> 
+	<script src="<%=request.getContextPath()%>/script/ajaxfileupload.js"></script> 
   </head>
   
   <body>

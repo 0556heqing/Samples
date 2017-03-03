@@ -7,7 +7,7 @@ import com.heqing.samplesFramework.spring.service.TestService;
 
 @Service
 public class TestServiceImpl implements TestService {
-
+	
 	@Override
 	public String test(int id, String name, Test test) {
 		// TODO Auto-generated method stub
