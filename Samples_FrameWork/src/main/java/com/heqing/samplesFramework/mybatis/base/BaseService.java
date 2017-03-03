@@ -38,15 +38,17 @@ public interface BaseService<T> {
 
 	/**
 	 * 查询所有实体
+	 * @param entity 实体
 	 * @return List<T> 实体集合
 	 */
-	List<T> findAll();
+	List<T> findAll(T entity);
 
 	/**
 	 * 公共的查询分页信息的方法
+	 * @param entity 实体
 	 * @param pageNum	哪一页,
 	 * @param pageSize 一页的数目
 	 * @return List<T> 实体集合 	
 	 */
-	List<T> getPageBean(int pageNum, int pageSize);
+	List<T> getPageBean(T entity, int pageNum, int pageSize);
 }

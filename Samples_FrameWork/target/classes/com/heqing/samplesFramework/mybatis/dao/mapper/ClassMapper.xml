@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heqing.samplesFramework.mybatis.dao.ClassDao">
+
+    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>
+    
+    <resultMap id="classResult" type="com.heqing.samplesFramework.mybatis.bean.Class" >
+        <id 	 	 column="class_id"	 			property="id"   />
+        <result 	 column="class_name" 			property="name" />    
+        <association column="class_headTeacherId"   property="headTeacher"   javaType="Teacher" 
+        			 select="com.heqing.samplesFramework.mybatis.dao.TeacherDao.getById"   />    
+        <association column="class_classDirectorId" property="classDirector" javaType="Teacher" 
+        			 select="com.heqing.samplesFramework.mybatis.dao.TeacherDao.getById" /> 
+        <collection  column="class_id" 	 			property="teachers"  	 ofType="Teacher"   
+        			 select="com.heqing.samplesFramework.mybatis.dao.TeacherDao.getTeacherByClassId" />
+    </resultMap>
+
+    <sql id="Base_Column"> 
+   		class._id class_id, class._name class_name, class._headTeacherId class_headTeacherId, class._classDirectorId class_classDirectorId
+    </sql>
+
+    <insert id="save" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into t_Class (_id, _name, _headTeacherId, _classDirectorId) values (#{id}, #{name}, #{headTeacher.id}, #{classDirector.id})
+    </insert>
+
+    <update id="update" parameterType="class">
+        update t_Class 
+        set _name = #{name}, _headTeacherId = #{headTeacher.id}, _classDirectorId = #{classDirector.id}
+        where _id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from t_Class where _id = #{id}
+    </delete>
+
+    <select id="getById" parameterType="Long" resultMap="classResult">
+        select 
+        	<include refid="Base_Column"/>
+        from t_Class class 
+        where class._id = #{id}
+    </select>
+    
+    <select id="getByIds" parameterType="Long[]" resultMap="classResult">
+        select 
+        	<include refid="Base_Column"/>
+        from t_Class class where class._id in
+	    <foreach collection="array" index="index" item="item" open="(" separator="," close=")">  
+	    	#{item}   
+	    </foreach>  
+    </select>
+
+    <select id="findAll" resultMap="classResult">
+        select 
+        	<include refid="Base_Column"/>
+        from t_Class class
+        <where> 
+		    <if test="name != null">
+		    	class._name = #{name}
+		    </if> 
+		    <if test="headTeacher != null and headTeacher.id != null">
+		        AND class._headTeacherId = #{headTeacher.id}
+		    </if>
+		    <if test="classDirector != null and classDirector.id != null">
+		        AND class._classDirectorId = #{classDirector.id}
+		    </if>
+	    </where>
+    </select>
+
+	<select id="getPageBean"  resultMap="classResult">
+        select 
+        	<include refid="Base_Column"/>
+        from t_Class class
+        <where> 
+		    <if test="name != null">
+		    	class._name = #{name}
+		    </if> 
+		    <if test="headTeacher != null and headTeacher.id != null">
+		        AND class._headTeacherId = #{headTeacher.id}
+		    </if>
+		    <if test="classDirector != null and classDirector.id != null">
+		        AND class._classDirectorId = #{classDirector.id}
+		    </if>
+	    </where>
+    	<if test="pageNum != 0 or pageSize != 0">
+	        limit #{pageNum} , #{pageSize} 
+	    </if>
+    </select>
+    
+    <select id="getClassListByTeacher" resultMap="classResult" >
+        select 
+        	<include refid="Base_Column"/>
+        from t_Class class 
+        where class._classDirectorId = #{teacherId}
+    </select>
+    
+   <select id="getClassByTeacherId" parameterType="Long" resultMap="classResult">
+        select 
+        	<include refid="Base_Column"/>
+        from t_Class class , t_teacher_class tc
+        where tc._classId = class._id and tc._teacherId = #{teacherId}
+    </select>
+    
+    <insert id="saveTeacherClass" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into t_teacher_class (_classId, _teacherId) values (#{classId}, #{teacherId})
+    </insert>
+    
+    <delete id="deleteTeacherClass" >
+        delete from t_teacher_class 
+        <where> 
+		    <if test="classId != 0">
+		    	_classId = #{classId}
+		    </if> 
+		    <if test="teacherId != 0">
+		        AND _teacherId = #{teacherId}
+		    </if>
+	    </where>
+    </delete>
+    
+</mapper>

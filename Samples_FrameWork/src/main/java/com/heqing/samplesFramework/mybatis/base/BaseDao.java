@@ -38,15 +38,17 @@ public interface BaseDao<T> {
 
 	/**
 	 * 查询所有
+	 * @param entity 实体:做条件查询使用
 	 * @return List<T> 多个实体集合
 	 */
-	List<T> findAll();
+	List<T> findAll(T entity);
 
 	/**
 	 * 公共的查询分页信息的方法
+	 * @param entity 实体:做条件查询使用
 	 * @param pageNum 哪一页
 	 * @param pageSize 一个几条信息
 	 * @return List<T> 多个实体集合
 	 */
-	List<T> getPageBean(int pageNum, int pageSize);
+	List<T> getPageBean(T entity, int pageNum, int pageSize);
 }

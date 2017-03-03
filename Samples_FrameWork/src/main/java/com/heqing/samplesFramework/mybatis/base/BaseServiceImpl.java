@@ -47,12 +47,12 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Cacheable(value = "data") 
-	public List<T> findAll() {
-		return baseDao.findAll();
+	public List<T> findAll(T entity) {
+		return baseDao.findAll(entity);
 	}
 
 	@Cacheable(value = "data") 
-	public List<T> getPageBean(int pageNum, int pageSize){
-		return baseDao.getPageBean(pageNum, pageSize);
+	public List<T> getPageBean(T entity, int pageNum, int pageSize){
+		return baseDao.getPageBean(entity, pageNum, pageSize);
 	}
 }

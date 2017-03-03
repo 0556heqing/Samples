@@ -29,12 +29,12 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		return null;
 	}
 
-	public List<T> findAll() {
+	public List<T> findAll(T entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<T> getPageBean(int pageNum, int pageSize) {
+	public List<T> getPageBean(T entity, int pageNum, int pageSize) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -65,5 +65,4 @@
 
 	<!-- 5. 使用声明式事务 -->
 	<tx:annotation-driven transaction-manager="manager" />
-
 </beans>

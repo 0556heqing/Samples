@@ -55,6 +55,7 @@ SpringMVC与struts2的区别
 	3.在web.xml中配置 spring_core.xml文件
 
 3. Mybatis
+	mybatis								http://www.mybatis.org/mybatis-3/zh/index.html
 
 4. Shiro
 	跟我学Shiro							http://jinnianshilongnian.iteye.com/blog/2049092
