@@ -56,8 +56,8 @@ public class SchedulerController {
 
 	@RequestMapping("/getSchedulerList")  
 	@ResponseBody
-	public void getSchedulerList(int pageNum, int pageSize) {
-		mySchedulerService.getPageBean(pageNum, pageSize);
+	public void getSchedulerList(MyScheduler myScheduler, int pageNum, int pageSize) {
+		mySchedulerService.getPageBean(myScheduler, pageNum, pageSize);
 	}
 	
 	@RequestMapping("/getSchedulerListByJobDetail")  

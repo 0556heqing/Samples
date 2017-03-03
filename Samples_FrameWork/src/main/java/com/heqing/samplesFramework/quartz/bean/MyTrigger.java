@@ -10,7 +10,7 @@ public class MyTrigger {
 	private String rule = "";				//规则 ：QuartZ Cron表达式
 	private String describe;			    //描述
 	private String createUser;  			//创建者
-	private Date createTime = new Date();   //创建时间
+	private Date   createTime = new Date(); //创建时间
 	
 	/**
 	 * @return the id
@@ -24,6 +24,7 @@ public class MyTrigger {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	/**
 	 * @return the 规则 ：QuartZ Cron表达式
 	 */
@@ -36,6 +37,7 @@ public class MyTrigger {
 	public void setRule(String rule) {
 		this.rule = rule;
 	}
+	
 	/**
 	 * @return the 描述
 	 */
@@ -48,6 +50,7 @@ public class MyTrigger {
 	public void setDescribe(String describe) {
 		this.describe = describe;
 	}
+	
 	/**
 	 * @return the 创建者
 	 */
@@ -60,6 +63,7 @@ public class MyTrigger {
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
 	}
+	
 	/**
 	 * @return the 创建时间
 	 */
@@ -72,5 +76,4 @@ public class MyTrigger {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-
 }

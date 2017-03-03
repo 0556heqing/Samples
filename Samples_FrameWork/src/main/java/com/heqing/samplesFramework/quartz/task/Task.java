@@ -3,9 +3,6 @@ package com.heqing.samplesFramework.quartz.task;
 import org.quartz.Job;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
-import org.quartz.SchedulerException;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
@@ -18,8 +15,7 @@ public class Task implements Job {
 		JobDetail job = arg.getJobDetail();
 		String methodName = job.getJobDataMap().getString("methodName");
 		if(!methodName.equals("")) {
-			String content = job.getJobDataMap().getString("content");
-			if(methodName.equals("test")) test(content);
+			if(methodName.equals("test")) test(job);
 			else normal = false;
 		} else {
 			normal = false;
@@ -33,7 +29,8 @@ public class Task implements Job {
 		}
 	}
 
-	public void test(String content) {
+	public void test(JobDetail job) {
+		String content = job.getJobDataMap().getString("content");
 		JSONObject object = (JSONObject) JSON.parse(content);
 		System.out.println("content = " + object.toJSONString());
 	}

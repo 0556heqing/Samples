@@ -4,7 +4,7 @@
 <mapper namespace="com.heqing.samplesFramework.quartz.dao.MySchedulerDao">
 
     <resultMap id="mySchedulerResult" type="MyScheduler" >
-        <result 	 column="s_id" 			property="id" />
+        <id		 	 column="s_id" 			property="id" />
         <result 	 column="s_name"  		property="name" />  
         <result 	 column="s_group"  		property="group" /> 
         <result 	 column="s_state"  		property="state" />  
@@ -74,13 +74,67 @@
         select 
         	<include refid="Base_Column"/> 
         from t_MyScheduler s
+        <where> 
+		    <if test="name != null">
+		    	j._name = #{name} 
+		    </if> 
+		    <if test="group != null">
+		    	AND j._group = #{group} 
+		    </if>
+		    <if test="state != null">
+		        AND j._state = #{state} 
+		    </if>
+		    <if test="myJobDetail != null and myJobDetail.id != null ">
+		        AND j._jobDetailId = #{myJobDetail.id }
+		    </if>
+		    <if test="myTrigger != null and myTrigger.id != null ">
+		        AND j._triggerId = #{myTrigger.id }
+		    </if>
+		    <if test="onOrOff != true">
+		        AND j._onOrOff = false
+		    </if>
+		    <if test="describe != null">
+		    	AND j._describe LIKE CONCAT('%',#{describe},'%')  
+		    </if>
+		    <if test="createUser != null">
+		        AND j._createUser LIKE CONCAT('%',#{createUser},'%')  
+		    </if>
+	    </where>
     </select>
 
 	<select id="getPageBean"  resultMap="mySchedulerResult">
         select 
         	<include refid="Base_Column"/> 
         from t_MyScheduler s 
-        where s._id limit #{0} , #{1} 
+        <where> 
+		    <if test="name != null">
+		    	j._name = #{name} 
+		    </if> 
+		    <if test="group != null">
+		    	AND j._group = #{group} 
+		    </if>
+		    <if test="state != null">
+		        AND j._state = #{state} 
+		    </if>
+		    <if test="myJobDetail != null and myJobDetail.id != null ">
+		        AND j._jobDetailId = #{myJobDetail.id }
+		    </if>
+		    <if test="myTrigger != null and myTrigger.id != null ">
+		        AND j._triggerId = #{myTrigger.id }
+		    </if>
+		    <if test="onOrOff != true">
+		        AND j._onOrOff = false
+		    </if>
+		    <if test="describe != null">
+		    	AND j._describe LIKE CONCAT('%',#{describe},'%')  
+		    </if>
+		    <if test="createUser != null">
+		        AND j._createUser LIKE CONCAT('%',#{createUser},'%')  
+		    </if>
+	    </where>
+	    <if test="pageNum != 0 or pageSize != 0">
+	        limit #{pageNum} , #{pageSize} 
+	    </if>
     </select>
     
     <select id="getSchedulerListByJobDetail"  resultMap="mySchedulerResult">

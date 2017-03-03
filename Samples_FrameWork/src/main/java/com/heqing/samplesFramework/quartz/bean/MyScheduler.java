@@ -6,12 +6,13 @@ import java.util.Random;
 //自定义的任务
 public class MyScheduler {
 
-	public static final String None     = "Trigger已经完成，且不会在执行，或者找不到该触发器，或者Trigger已经被删除";
-	public static final String NORMAL   = "正常状态";		
-	public static final String PAUSED   = "暂停状态";		
-	public static final String COMPLETE = "触发器完成，但是任务可能还正在执行中";
-	public static final String BLOCKED  = "线程阻塞状态";	
-	public static final String ERROR    = "出现错误";		
+	public static final String None     = "None";		//Trigger已经完成，且不会在执行，或者找不到该触发器，或者Trigger已经被删除
+	public static final String NORMAL   = "NORMAL";		//正常状态	
+	public static final String PAUSED   = "PAUSED";		//暂停状态	
+	public static final String COMPLETE = "COMPLETE";	//触发器完成，但是任务可能还正在执行中
+	public static final String BLOCKED  = "BLOCKED";	//线程阻塞状态
+	public static final String ERROR    = "ERROR";		//出现错误	
+	public static final String CLOSE    = "CLOSE";		//关闭状态	
 	
 	private long id = System.currentTimeMillis()+new Random().nextInt(10000);
 	private String name;			    	//名称
@@ -36,6 +37,7 @@ public class MyScheduler {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	/**
 	 * @return the 名称
 	 */
@@ -48,6 +50,7 @@ public class MyScheduler {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	/**
 	 * @return the 组
 	 */
@@ -60,6 +63,7 @@ public class MyScheduler {
 	public void setGroup(String group) {
 		this.group = group;
 	}
+	
 	/**
 	 * @return the 状态
 	 */
@@ -72,6 +76,7 @@ public class MyScheduler {
 	public void setState(String state) {
 		this.state = state;
 	}
+	
 	/**
 	 * @return the 任务ID
 	 */
@@ -84,6 +89,7 @@ public class MyScheduler {
 	public void setMyJobDetail(MyJobDetail myJobDetail) {
 		this.myJobDetail= myJobDetail;
 	}
+	
 	/**
 	 * @return the 规则ID
 	 */
@@ -96,6 +102,7 @@ public class MyScheduler {
 	public void setMyTrigger(MyTrigger myTrigger) {
 		this.myTrigger = myTrigger;
 	}
+	
 	/**
 	 * @return the 开/关
 	 */
@@ -108,6 +115,7 @@ public class MyScheduler {
 	public void setOnOrOff(boolean onOrOff) {
 		this.onOrOff = onOrOff;
 	}
+	
 	/**
 	 * @return the 描述
 	 */
@@ -120,6 +128,7 @@ public class MyScheduler {
 	public void setDescribe(String describe) {
 		this.describe = describe;
 	}
+	
 	/**
 	 * @return the 创建者
 	 */
@@ -132,6 +141,7 @@ public class MyScheduler {
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
 	}
+	
 	/**
 	 * @return the 创建时间
 	 */

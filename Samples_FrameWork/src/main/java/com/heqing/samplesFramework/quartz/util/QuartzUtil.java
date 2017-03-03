@@ -16,7 +16,7 @@ import org.quartz.impl.StdSchedulerFactory;
 import com.heqing.samplesFramework.quartz.bean.MyScheduler;
 
 public class QuartzUtil {
-
+	
 	public static SchedulerFactory schedulerfactory=new StdSchedulerFactory();
 	
 	//开启定时

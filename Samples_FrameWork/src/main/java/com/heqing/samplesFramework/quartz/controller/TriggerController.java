@@ -46,7 +46,7 @@ public class TriggerController {
 
 	@RequestMapping("/getTriggerList")  
 	@ResponseBody
-	public void getTriggerList(int pageNum, int pageSize) {
-		myTriggerService.getPageBean(pageNum, pageSize);
+	public void getTriggerList(MyTrigger myTrigger, int pageNum, int pageSize) {
+		myTriggerService.getPageBean(myTrigger, pageNum, pageSize);
 	}
 }

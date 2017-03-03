@@ -6,7 +6,7 @@ import com.heqing.samplesFramework.quartz.base.BaseService;
 import com.heqing.samplesFramework.quartz.bean.MyScheduler;
 
 public interface MySchedulerService extends BaseService<MyScheduler> {
-
+	
 	/**
 	 * 根据工作细节获取任务列表
 	 * @param myJobDetailId 工作细节实体ID

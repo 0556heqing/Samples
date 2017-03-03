@@ -13,7 +13,7 @@ import com.heqing.samplesFramework.quartz.service.MyJobDetailService;
 
 @Service
 public class MyJobDetailServiceImpl extends BaseServiceImpl<MyJobDetail> implements MyJobDetailService  {
-
+	
 	@Resource
 	private MyJobDetailDao myJobDetailDao;
 	@Resource

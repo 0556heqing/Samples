@@ -8,7 +8,7 @@ import com.heqing.samplesFramework.quartz.base.BaseDao;
 import com.heqing.samplesFramework.quartz.bean.MyScheduler;
 
 public interface MySchedulerDao extends BaseDao<MyScheduler> {
-
+	
 	/**
 	 * 根据工作细节获取任务列表
 	 * @param myJobDetailId 工作细节实体ID
@@ -33,7 +33,7 @@ public interface MySchedulerDao extends BaseDao<MyScheduler> {
 	
 	/**
 	 * 根据使用工作细节删除任务
-	 * @param myTriggerId 规则ID
+	 * @param myTriggerId 工作细节ID
 	 */
 	void deleteSchedulerByJobDetail(@Param(value="myJobDetailId")long myJobDetailId);
 	

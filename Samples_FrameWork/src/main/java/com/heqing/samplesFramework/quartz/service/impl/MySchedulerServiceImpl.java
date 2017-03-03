@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.heqing.samplesFramework.quartz.base.BaseServiceImpl;
 import com.heqing.samplesFramework.quartz.bean.MyScheduler;
+import com.heqing.samplesFramework.quartz.dao.MyJobDetailDao;
 import com.heqing.samplesFramework.quartz.dao.MySchedulerDao;
+import com.heqing.samplesFramework.quartz.dao.MyTriggerDao;
 import com.heqing.samplesFramework.quartz.service.MySchedulerService;
 import com.heqing.samplesFramework.quartz.util.QuartzUtil;
 
@@ -20,11 +22,18 @@ import com.heqing.samplesFramework.quartz.util.QuartzUtil;
 public class MySchedulerServiceImpl extends BaseServiceImpl<MyScheduler> implements MySchedulerService {
 
 	@Resource
+	private MyJobDetailDao myJobDetailDao;
+	@Resource
+	private MyTriggerDao myTriggerDao;
+	@Resource
 	private MySchedulerDao mySchedulerDao;
 	
 	@CacheEvict(value = "data", allEntries = true) 
 	public boolean save(MyScheduler myScheduler) {
 		if(myScheduler.getMyJobDetail()==null || myScheduler.getMyTrigger()==null) return false;
+		if(myJobDetailDao.findAll(myScheduler.getMyJobDetail()).size() < 1) myJobDetailDao.save(myScheduler.getMyJobDetail());
+		if(myTriggerDao.findAll(myScheduler.getMyTrigger()).size() < 1) 	myTriggerDao.save(myScheduler.getMyTrigger());
+			
 		mySchedulerDao.save(myScheduler);
 		try {
 			QuartzUtil.saveScheduler(myScheduler);
@@ -97,5 +106,4 @@ public class MySchedulerServiceImpl extends BaseServiceImpl<MyScheduler> impleme
 		// TODO Auto-generated method stub
 		mySchedulerDao.deleteSchedulerByTrigger(myTriggerId);
 	}
-	
 }

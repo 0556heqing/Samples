@@ -4,7 +4,7 @@
 <mapper namespace="com.heqing.samplesFramework.quartz.dao.MyJobDetailDao">
 
     <resultMap id="myJobDetailResult" type="MyJobDetail" >
-        <result column="j_id" 			property="id" />
+        <id 	column="j_id" 			property="id" />
         <result column="j_className" 	property="className" />   
         <result column="j_methodsName"  property="methodsName" />   
         <result column="j_content" 		property="content" />   
@@ -58,12 +58,48 @@
         select 
         	<include refid="Base_Column"/> 
         from t_MyJobDetail j
+        <where> 
+		    <if test="className != null">
+		    	j._className =#{className}
+		    </if> 
+		    <if test="methodsName != null">
+		    	AND j._methodsName =#{methodsName} 
+		    </if>
+		    <if test="content != null">
+		        AND j._content LIKE CONCAT('%',#{content},'%')  
+		    </if>
+		    <if test="describe != null">
+		        AND j._describe LIKE CONCAT('%',#{describe},'%')  
+		    </if>
+		    <if test="createUser != null">
+		        AND j._createUser LIKE CONCAT('%',#{createUser},'%')  
+		    </if>
+	    </where>
     </select>
 
 	<select id="getPageBean"  resultMap="myJobDetailResult">
         select 
         	<include refid="Base_Column"/> 
         from t_MyJobDetail j 
-        where j._id limit #{0} , #{1} 
+        <where> 
+		    <if test="className != null">
+		    	j._className =#{className}
+		    </if> 
+		    <if test="methodsName != null">
+		    	AND j._methodsName =#{methodsName}
+		    </if>
+		    <if test="content != null">
+		        AND j._content LIKE CONCAT('%',#{content},'%')  
+		    </if>
+		    <if test="describe != null">
+		        AND j._describe LIKE CONCAT('%',#{describe},'%')  
+		    </if>
+		    <if test="createUser != null">
+		        AND j._createUser LIKE CONCAT('%',#{createUser},'%')  
+		    </if>
+	    </where>
+	    <if test="pageNum != 0 or pageSize != 0">
+	        limit #{pageNum} , #{pageSize} 
+	    </if>
     </select>
 </mapper>

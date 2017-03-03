@@ -30,7 +30,7 @@ public class MyTriggerServiceImpl extends BaseServiceImpl<MyTrigger> implements 
 		mySchedulerDao.deleteSchedulerByTrigger(id);
 		return true;
 	}
-	
+
 	@CachePut(value = "data")    
 	public boolean update(MyTrigger myTrigger) {
 		try {

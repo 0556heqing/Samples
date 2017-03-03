@@ -46,7 +46,7 @@ public class JobDetailController {
 
 	@RequestMapping("/getJobDetailList")  
 	@ResponseBody
-	public void getJobDetailList(int pageNum, int pageSize) {
-		myJobDetailService.getPageBean(pageNum, pageSize);
+	public void getJobDetailList(MyJobDetail myJobDetail, int pageNum, int pageSize) {
+		myJobDetailService.getPageBean(myJobDetail, pageNum, pageSize);
 	}
 }

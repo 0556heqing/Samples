@@ -26,6 +26,7 @@ public class MyJobDetail {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	/**
 	 * @return the 目标类名
 	 */
@@ -38,6 +39,7 @@ public class MyJobDetail {
 	public void setClassName(String className) {
 		this.className = className;
 	}
+	
 	/**
 	 * @return the 目标类中的方法名
 	 */
@@ -50,6 +52,7 @@ public class MyJobDetail {
 	public void setMethodsName(String methodsName) {
 		this.methodsName = methodsName;
 	}
+	
 	/**
 	 * @return the 内容
 	 */
@@ -62,6 +65,7 @@ public class MyJobDetail {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
 	/**
 	 * @return the 描述
 	 */
@@ -74,6 +78,7 @@ public class MyJobDetail {
 	public void setDescribe(String describe) {
 		this.describe = describe;
 	}
+	
 	/**
 	 * @return the 创建者
 	 */
@@ -86,6 +91,7 @@ public class MyJobDetail {
 	public void setCreateUser(String createUser) {
 		this.createUser = createUser;
 	}
+	
 	/**
 	 * @return the 创建时间
 	 */

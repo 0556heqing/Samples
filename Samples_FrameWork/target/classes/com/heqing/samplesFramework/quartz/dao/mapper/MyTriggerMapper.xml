@@ -4,7 +4,7 @@
 <mapper namespace="com.heqing.samplesFramework.quartz.dao.MyTriggerDao">
 
     <resultMap id="myTriggerResult" type="MyTrigger" >
-        <result column="t_id" 			property="id" />
+        <id		column="t_id" 			property="id" />
         <result column="t_rule" 		property="rule" />   
         <result column="t_describe"  	property="describe" />   
         <result column="t_createUser" 	property="createUser" />   
@@ -55,12 +55,36 @@
         select 
         	<include refid="Base_Column"/> 
         from t_MyTrigger t
+        <where> 
+		    <if test="rule != null">
+		    	t._rule =#{rule} 
+		    </if> 
+		    <if test="describe != null">
+		    	AND t._describe LIKE CONCAT('%',#{describe},'%')  
+		    </if>
+		    <if test="createUser != null">
+		        AND t._createUser LIKE CONCAT('%',#{createUser},'%')  
+		    </if>
+	    </where>
     </select>
 
 	<select id="getPageBean"  resultMap="myTriggerResult">
         select 
         	<include refid="Base_Column"/> 
         from t_MyTrigger t 
-        where t._id limit #{0} , #{1} 
+        <where> 
+		    <if test="rule != null">
+		    	t._rule = #{rule}
+		    </if> 
+		    <if test="describe != null">
+		    	AND t._describe LIKE CONCAT('%',#{describe},'%')  
+		    </if>
+		    <if test="createUser != null">
+		        AND t._createUser LIKE CONCAT('%',#{createUser},'%')  
+		    </if>
+	    </where>
+	    <if test="pageNum != 0 or pageSize != 0">
+	        limit #{pageNum} , #{pageSize} 
+	    </if>
     </select>
 </mapper>
