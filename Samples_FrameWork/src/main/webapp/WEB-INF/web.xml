@@ -11,9 +11,10 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:spring_core.xml,
+			classpath:spring_core.xml, 
 			classpath:spring_hibernate.xml,
-			classpath:spring_mybatis.xml
+			classpath:spring_mybatis.xml,
+			classpath:spring_quartz.xml
 		</param-value>
 	</context-param>
 	<listener>
