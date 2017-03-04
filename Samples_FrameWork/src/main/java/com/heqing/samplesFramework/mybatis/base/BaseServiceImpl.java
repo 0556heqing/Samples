@@ -21,37 +21,37 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		this.baseDao = baseDao;
 	}
 
-	@CacheEvict(value = "data", allEntries = true) 
+	@CacheEvict(value="data", key="#root.targetClass+#root.methodName", allEntries=true) 
 	public void save(T entity) {
 		baseDao.save(entity);
 	}
 
-	@CachePut(value = "data")    
+	@CachePut(value="data", key="#root.targetClass+#root.methodName")    
 	public void update(T entity) {
 		baseDao.update(entity);
 	}
 
-	@CacheEvict(value = "data", allEntries = true)    
+	@CacheEvict(value="data", key="#root.targetClass+#root.methodName", allEntries=true)    
 	public void delete(Long id) {
 		baseDao.delete(id);
 	}
 
-	@Cacheable(value = "data") 
+	@Cacheable(value="data", key="#root.targetClass+#root.methodName") 
 	public T getById(Long id) {
 		return (T) baseDao.getById(id);
 	}
 
-	@Cacheable(value = "data") 
+	@Cacheable(value="data", key="#root.targetClass+#root.methodName") 
 	public List<T> getByIds(Long[] ids) {
 		return baseDao.getByIds(ids);
 	}
 
-	@Cacheable(value = "data") 
+	@Cacheable(value="data", key="#root.targetClass+#root.methodName") 
 	public List<T> findAll(T entity) {
 		return baseDao.findAll(entity);
 	}
 
-	@Cacheable(value = "data") 
+	@Cacheable(value="data", key="#root.targetClass+#root.methodName") 
 	public List<T> getPageBean(T entity, int pageNum, int pageSize){
 		return baseDao.getPageBean(entity, pageNum, pageSize);
 	}
