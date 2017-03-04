@@ -49,14 +49,21 @@
 		<dependency>
 		    <groupId>org.apache.struts</groupId>
 		    <artifactId>struts2-spring-plugin</artifactId>
-		    <version>2.3.16.3</version>
+		    <version>2.3.30</version>
 		</dependency>
 		
-		<!-- Xwork提供了很多核心功能：前端拦截机（interceptor），运行时表单属性验证，类型转换，强大的表达式语言（OGNL），IoC（反转控制）容器等 -->
+		<!-- struts2 零配置-->
 		<dependency>
-		    <groupId>com.opensymphony</groupId>
-		    <artifactId>xwork-core</artifactId>
-		    <version>2.1.6</version>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-convention-plugin</artifactId>
+		    <version>2.3.30</version>
+		</dependency>
+		
+		<!-- struts2  返回json-->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-json-plugin</artifactId>
+		    <version>2.3.30</version>
 		</dependency>
 		
 	</dependencies>

@@ -5,14 +5,43 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<!-- 配置了系列常量 -->
+	<!-- 请求参数的编码方式--> 
 	<constant name="struts.i18n.encoding"	value="UTF-8"/>
-	<constant name="struts.devMode" 		value="true"/>	
-	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>	
 	
-	<package name="default"  namespace="/"   extends="struts-default">
-		<!-- 测试用的action，当与Spring整合后，class属性写的就是Spring中bean的名称 -->
-		<action name="struts2_*"  class="com.heqing.samplesFramework.struts2.action.TestAction" method="{1}">
-		    <result name="struts2">WEB-INF/view/struts2.jsp</result>
-		</action>
-	</package>
+	<!-- 指定被struts2处理的请求后缀类型。多个用逗号隔开--> 
+	<constant name="struts.action.extension" value=",do,action,jsp"/>
+	
+	<!-- 当struts.xml改动后，是否重新加载。默认值为false(生产环境下使用),开发阶段最好打开  --> 
+    <constant name="struts.configuration.xml.reload" value="true"/> 
+
+    <!-- 是否使用struts的开发模式。开发模式会有更多的调试信息。默认值为false(生产环境下使用),开发阶段最好打开  --> 
+    <constant name="struts.devMode" value="true"/>   
+
+    <!-- 设置浏览器是否缓存静态内容。默认值为true(生产环境下使用),开发阶段最好关闭  --> 
+    <constant name="struts.serve.static.browserCache" value="false" /> 
+
+    <!-- 指定由spring负责action对象的创建    
+    <constant name="struts.objectFactory" value="spring" /> 
+    --> 
+
+    <!-- 是否开启动态方法调用--> 
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/> 
+    
+    <constant name="struts.convention.result.path" value="/WEB-INF/view/"></constant>  
+    
+    <!-- 配置文件上传的总大小 -->  
+    <constant name="struts.multipart.maxSize" value="2097152000"></constant>  
+
+	<package name="crud-default" extends="json-default">
+        <interceptors>
+            <interceptor name="testInterceptor" class="com.heqing.samplesFramework.struts2.interceptor.TestInterceptor" />
+            <interceptor-stack name="checkStack">
+                <interceptor-ref name="testInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+        <global-results>
+		    <result name="index">../index.jsp</result>
+		</global-results>
+    </package>
+
 </struts>

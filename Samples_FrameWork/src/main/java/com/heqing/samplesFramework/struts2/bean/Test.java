@@ -4,6 +4,7 @@ public class Test {
 
 	private int id;
 	private String name;
+	private int age;
 	
 	/**
 	 * @return the id
@@ -29,5 +30,17 @@ public class Test {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
 }
