@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +51,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	public T getById(Long id) {
+		System.out.println("========检查缓存==========");
 		if (id == null) {
 			return null;
 		}
@@ -72,9 +74,13 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 				.list();
 	}
 
-	public PageBean getPageBean(int pageNum, int pageSize, HqlHelper hqlHelper) {
+	public List<T> findListByHQL(HqlHelper hqlHelper) {
+		return getSession().createQuery(hqlHelper.getQueryListHql()).list();
+	}
+	
+	public PageBean getPageBeanByHql(int pageNum, int pageSize, HqlHelper hqlHelper) {
 		List<Object> parameters = hqlHelper.getParameters();
-
+		
 		// 查询本页的数据列表
 		Query listQuery = getSession().createQuery(hqlHelper.getQueryListHql());
 		if (parameters != null && parameters.size() > 0) { // 设置参数
@@ -94,8 +100,21 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 			}
 		}
 		Long count = (Long) countQuery.uniqueResult(); // 执行查询
-
 		return new PageBean(pageNum, pageSize, list, count.intValue());
 	}
-
+	
+	public List<T> findListBySQL(String sql) {
+		SQLQuery query=getSession().createSQLQuery(sql).addEntity(this.clazz);
+		return query.list();
+	}
+	
+	public PageBean getPageBeanBySql(int pageNum, int pageSize, String sql) {
+		SQLQuery query=getSession().createSQLQuery(sql).addEntity(this.clazz);
+		int count = query.list().size();
+		if(pageNum!=0 && pageSize!=0){
+			query.setFirstResult((pageNum-1)*pageSize);    
+		    query.setMaxResults(pageSize);
+		}
+		return new PageBean(pageNum, pageSize, query.list(), count);
+	}
 }

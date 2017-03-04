@@ -2,6 +2,9 @@ package com.heqing.samplesFramework.hibernate.base;
 
 import java.util.List;
 
+import com.heqing.samplesBase.bean.PageBean;
+import com.heqing.samplesFramework.hibernate.utils.HqlHelper;
+
 public interface BaseService<T> {
 
 	/**
@@ -49,4 +52,28 @@ public interface BaseService<T> {
 	 * @param hqlHelper  查询条件（HQL语句与参数列表）
 	 * @return
 	 */
+	PageBean getPageBeanByHql(int pageNum, int pageSize, HqlHelper hqlHelper);
+	
+	/**
+	 * 公共的查询分页信息的方法
+	 * @param hqlHelper  查询条件（HQL语句与参数列表）
+	 * @return
+	 */
+	 List<T> findListByHQL(HqlHelper hqlHelper);
+	 
+	 /**
+	 * 公共的查询分页信息的方法
+	 * @param sql  sql语句
+	 * @return
+	 */
+	 List<T> findListBySQL(String sql);
+	 
+	/**
+	 * 公共的查询分页信息的方法
+	 * @param pageNum	当前页
+	 * @param pageSize	每页显示多少条记录
+	 * @param sql  		sql语句
+	 * @return
+	 */
+	PageBean getPageBeanBySql(int pageNum, int pageSize, String sql);
 }

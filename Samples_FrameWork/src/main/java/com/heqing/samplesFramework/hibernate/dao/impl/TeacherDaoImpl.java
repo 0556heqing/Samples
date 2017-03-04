@@ -8,5 +8,5 @@ import com.heqing.samplesFramework.hibernate.dao.TeacherDao;
 
 @Repository
 public class TeacherDaoImpl extends BaseDaoImpl<Teacher> implements TeacherDao {
-
+	
 }

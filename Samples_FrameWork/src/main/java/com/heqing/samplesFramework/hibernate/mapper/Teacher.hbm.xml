@@ -5,7 +5,7 @@
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-
+	
     <class name="com.heqing.samplesFramework.hibernate.bean.Teacher" table="teacher">
         <id name="id">
             <generator class="native" />

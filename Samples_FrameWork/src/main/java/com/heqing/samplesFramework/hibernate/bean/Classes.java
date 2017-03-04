@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Classes {
-
+	
 	private long id;
 	private String name;
 	private Teacher headTeacher;	//班主任

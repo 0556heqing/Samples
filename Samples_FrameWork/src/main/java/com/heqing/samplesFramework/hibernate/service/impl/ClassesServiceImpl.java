@@ -13,7 +13,7 @@ import com.heqing.samplesFramework.hibernate.service.ClassesService;
 @Service
 @Transactional
 public class ClassesServiceImpl  extends BaseServiceImpl<Classes> implements ClassesService{
-
+	
 	@Resource
 	private ClassesDao classesDao;
 	

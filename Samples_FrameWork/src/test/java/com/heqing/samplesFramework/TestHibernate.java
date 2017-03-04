@@ -35,14 +35,6 @@ public class TestHibernate {
 	public void createTable() throws Exception {
 		System.out.println(sessionFactory);
 	}
-
-	@Test
-	public void testCache() {
-		Teacher teacher1 = teacherService.getById(1L);
-		System.out.println("1------->"+teacher1.getName());
-		Teacher teacher2 = teacherService.getById(1L);
-		System.out.println("2------->"+teacher2.getName());
-	}
 	
 //	@Test
 	public void testSave() throws Exception {
@@ -101,7 +93,7 @@ public class TestHibernate {
 		
 		System.out.println();
 		
-		Classes classes = classesService.getById(1l);						
+		Classes classes = classesService.getById(1L);						
 		name = classes.getName();
 		System.out.println(name+"的班主任为："+classes.getHeadTeacher().getName());		//一对一
 		if(classes.getTeachers() != null) {											//多对多
@@ -115,6 +107,41 @@ public class TestHibernate {
 	}
 	
 //	@Test
+	public void testOneToOne() throws Exception {
+		Teacher teacher = teacherService.getById(1L);
+		System.out.println(teacher.getSuperviseClass().getName());
+		
+		Classes classes = classesService.getById(1l);
+		System.out.println(classes.getHeadTeacher().getName());
+	}
+	
+//	@Test
+	public void testManyToMany() throws Exception {
+		Teacher teacher = teacherService.getById(1L);
+		for(Classes c : teacher.getTeachClasses()) {
+			System.out.println(c.getName());
+		}
+		
+		Classes classes = classesService.getById(1l);
+		for(Teacher t : classes.getTeachers()) {
+			System.out.println(t.getName());
+		}
+	}
+	
+//	@Test
+	public void testOneToMany() throws Exception {
+		Teacher teacher = teacherService.getById(1L);
+		for(Classes c : teacher.getTeachClasses()) {
+			System.out.println(c.getName());
+		}
+		
+		Classes classes = classesService.getById(1l);
+		for(Teacher t : classes.getTeachers()) {
+			System.out.println(t.getName());
+		}
+	}
+	
+//	@Test
 	public void testUpdate() {
 		Teacher teacher = teacherService.getById(1L);
 		teacher.setBirthday(new Date());
@@ -124,7 +151,19 @@ public class TestHibernate {
 	
 //	@Test
 	public void testDelete() {
-		//注意，使用删除时会删除所有相关联的。这是错误的删除方法，删除教师时关联班级不应该删除，而应将班级对应教师设为空
+		//注意，此处因为主键-外键关系过于复杂，无法删除。需删除需以下步骤（hibernate无法自动做）
+		//1.删除 多对多 表中与此教师相关的。
+		//2.将班级表中与此教师相关的设为空。
+		//3.删除此教师
 		teacherService.delete(1L);
 	}
+	
+//	@Test
+	public void testCache() {
+		Teacher teacher1 = teacherService.getById(1L);
+		System.out.println("1------->"+teacher1.getName());
+		Teacher teacher2 = teacherService.getById(1L);
+		System.out.println("2------->"+teacher2.getName());
+	}
+
 }

@@ -6,9 +6,7 @@
 	<session-factory>
 	
 		<!-- 数据库信息（连接信息写到spring的配置文件中） -->
-		<property name="dialect">
-			org.hibernate.dialect.MySQL5Dialect
-		</property>
+		<property name="dialect"> org.hibernate.dialect.MySQL5Dialect </property>
 	
 		<!-- 其他配置 -->
 		<property name="show_sql">true</property>
